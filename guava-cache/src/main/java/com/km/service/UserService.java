@@ -1,8 +1,10 @@
 package com.km.service;
 
 import com.km.cache.CacheService;
-import com.km.db.UserDao;
+import com.km.db.DBUtil;
 import com.km.entity.User;
+
+import java.sql.ResultSet;
 
 /**
  * <p></p>
@@ -11,11 +13,18 @@ import com.km.entity.User;
 public class UserService extends CacheService<Long, User> {
 
     public static UserService INSTANCE = new UserService();
-    private UserDao userDao = new UserDao();
 
     @Override
     public User load(Long id) throws Exception {
         System.out.println("query db");
-        return userDao.select("select * from user where id=" + id);
+        User user = null;
+        DBUtil dbUtil = new DBUtil();
+        ResultSet rs = dbUtil.select("user", "id, username, password", "where id = 1");
+        while (rs.next()) {
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            user = new User(id, username, password);
+        }
+        return user;
     }
 }

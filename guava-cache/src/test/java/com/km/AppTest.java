@@ -1,8 +1,12 @@
 package com.km;
 
+import com.km.db.DBUtil;
 import com.km.entity.User;
 import com.km.service.UserService;
 import org.junit.Test;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Unit test for simple App.
@@ -25,6 +29,20 @@ public class AppTest {
         userService.remove(1L);
         User user2 = userService.get(1L);
         System.out.println(user2.getName());
+    }
+
+    @Test
+    public void testDb() throws SQLException {
+        User user = null;
+        DBUtil dbUtil = new DBUtil();
+        ResultSet rs = dbUtil.select("user", "id, username, password", "where id = 1");
+        while (rs.next()) {
+            long id = rs.getLong("id");
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            user = new User(id, username, password);
+        }
+        System.out.println(user.toString());
     }
 
 }
