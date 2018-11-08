@@ -53,9 +53,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @CachePut(value = "user", key = "'user'.concat(#user.id.toString())")
-    public void update(User user) {
+    public User update(User user) {
         log.info("update db, user: {}", user.toString());
         userMap.put(user.getId(), user);
+        return user;
     }
 
     @Override
