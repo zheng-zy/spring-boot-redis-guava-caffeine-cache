@@ -15,6 +15,7 @@
 		<module>spring-boot-redis-cache</module>
 		<module>spring-boot-guava-cache</module>
 		<module>spring-boot-caffeine-cache</module>
+		<module>spring-boot-ehcache</module>
         <module>guava-cache</module>
 	</modules>
 
