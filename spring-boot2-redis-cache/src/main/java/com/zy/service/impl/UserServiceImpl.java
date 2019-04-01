@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable(value = "userList", key = "methodName")
     public List list() {
         return Arrays.asList(userMap.values().toArray());
     }

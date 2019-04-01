@@ -1,17 +1,14 @@
 package com.zy.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.ImmutableMap;
 import com.zy.entity.User;
 import com.zy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -26,22 +23,6 @@ public class IndexController {
 
     @Autowired
     private UserService userService;
-
-    @Resource(name = "redisTemplateB")
-    private RedisTemplate redisTemplateB;
-
-    @Resource(name = "redisTemplateA")
-    private RedisTemplate redisTemplate;
-
-
-
-    @GetMapping("/db/users")
-    @ResponseBody
-    public List<User> users3() {
-        redisTemplate.opsForValue().set("usersa", JSON.toJSONString(userService.list()));
-        redisTemplateB.opsForValue().set("usersb", JSON.toJSONString(userService.list()));
-        return userService.list();
-    }
 
     @GetMapping("/users")
     @ResponseBody
