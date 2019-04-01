@@ -1,5 +1,8 @@
 spring:
+  application:
+    name: spring-boot2-redis-cache
   redis:
+    timeToLive: 15
     lettuce:
       pool:
         MaxTotal: 50
@@ -10,12 +13,13 @@ spring:
         testOnReturn: true
         testWhileIdle: true
     redis-a:
-      database: 3
+      database: 7
       hostName: 192.168.96.24
       port: 16379
       timeout: 5000
     redis-b:
-      database: 7
+      database: 3
       hostName: ${spring.redis.redis-a.hostName}
       port: ${spring.redis.redis-a.port}
       timeout: ${spring.redis.redis-a.timeout}
+
