@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBoot2RedisCacheApplicationTests {
+public class SpringBoot2MultiRedisCacheApplicationTests {
 
     @Resource(name = "redisTemplateB")
     private RedisTemplate redisTemplateB;

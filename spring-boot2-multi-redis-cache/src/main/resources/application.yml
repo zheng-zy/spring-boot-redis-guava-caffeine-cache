@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-boot2-redis-cache
+    name: spring-boot2-multi-redis-cache
   redis:
     timeToLive: 15
     lettuce:
