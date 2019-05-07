@@ -1,5 +1,6 @@
 package com.zy.service;
 
+import com.zy.entity.Info;
 import com.zy.entity.User;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public interface UserService {
 
     User findUserById(Long id);
 
-    User findInfoById(Long id);
+    Info findInfoById(Long id);
 
-    void update(User user);
+    User update(User user);
 
     void remove(Long id);
 

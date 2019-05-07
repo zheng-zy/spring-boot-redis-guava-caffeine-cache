@@ -2,7 +2,7 @@ spring:
   application:
     name: spring-boot2-redis-cache
   redis:
-    host: 192.168.96.24
-    port: 16379
+    host: localhost
+    port: 6381
     database: 7
     timeout: 1s

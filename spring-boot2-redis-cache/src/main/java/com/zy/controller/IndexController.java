@@ -1,6 +1,7 @@
 package com.zy.controller;
 
 import com.google.common.collect.ImmutableMap;
+import com.zy.entity.Info;
 import com.zy.entity.User;
 import com.zy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class IndexController {
 
     @GetMapping("/info/{id}")
     @ResponseBody
-    public User findInfoById(@PathVariable("id") Long id) {
+    public Info findInfoById(@PathVariable("id") Long id) {
         return userService.findInfoById(id);
     }
 
