@@ -51,6 +51,7 @@ public class RedisConfig extends CachingConfigurerSupport {
                 .prefixKeysWith(appName + ":")
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer))
+                // 是否允许控制存储
                 .disableCachingNullValues();
 
         RedisCacheManager cacheManager = RedisCacheManager.builder(factory)

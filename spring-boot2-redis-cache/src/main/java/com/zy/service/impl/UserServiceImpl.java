@@ -47,16 +47,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Cacheable(value = "info", key = "'info'.concat(#id.toString())")
-    public User findInfoById(Long id) {
+    public Info findInfoById(Long id) {
         log.info("findInfoById query from db, id: {}", id);
-        return userMap.get(id);
+        return infoMap.get(id);
     }
 
     @Override
     @CachePut(value = "user", key = "'user'.concat(#user.id.toString())")
-    public void update(User user) {
+    public User update(User user) {
         log.info("update db, user: {}", user.toString());
         userMap.put(user.getId(), user);
+        return user;
     }
 
     @Override
