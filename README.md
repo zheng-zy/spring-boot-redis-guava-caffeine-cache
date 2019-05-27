@@ -6,8 +6,3 @@
 * [guava和caffeine性能测试](http://blog.csdn.net/hy245120020/article/details/78080686)
 * [springboot2.x版本redis缓存学习](https://blog.csdn.net/hy245120020/article/details/89028833)
 * [springboot2.x版本多个redis实例配置学习](https://blog.csdn.net/hy245120020/article/details/89029111)
-
-
-### 参考
-* https://blog.csdn.net/chenypgg/article/details/85698209
-* https://www.cnblogs.com/wslook/p/9401134.html
